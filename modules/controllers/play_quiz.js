@@ -49,5 +49,21 @@ module.exports.total_quiz_score = async function (req, res) {
 }
 
 
+module.exports.question_wise_details = async function (req, res) {
+    try {
+        student_id = req["student_id"]
+        var sql_query1 = 'select * from answer where student_id=?'
+        var values = [student_id];
+
+        var results = await execute_query(sql_query1, values)
+        responses.sendResponse(res, results, constants.STATUS_CODES.SUCCESS)
+
+    }
+    catch (err) {
+        responses.sendResponse(res, err, constants.STATUS_CODES.NOT_FOUND)
+    }
+}
+
+
 
 
