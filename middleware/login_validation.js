@@ -30,7 +30,7 @@ const teacherloginValidation = async (req, res, next) => {
 
     const { error } = validation.validate(payload);
     if (error) {
-        responses.sendResponse(res, `Error in User Data : ${error.message}`, constants.STATUS_CODES.UNAUTHORIZED)
+        responses.sendResponse(res, `Error in teacher Data : ${error.message}`, constants.STATUS_CODES.UNAUTHORIZED)
     } else {
         next();
     }

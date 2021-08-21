@@ -6,7 +6,7 @@ const validation = joi.object({
 	userName: joi.string().alphanum().min(3).max(25).required(),
 	email: joi.string().email().required(),
 	password: joi.string().min(5).required(),
-	mobileNumber: joi.string().length(10)
+	mobileNumber: joi.string().length(10).required()
 });
 
 const studentValidation = async (req, res, next) => {
@@ -18,7 +18,7 @@ const studentValidation = async (req, res, next) => {
 	};
 	const { error } = validation.validate(payload);
 	if (error) {
-		responses.sendResponse(res, `Error in User Data : ${error.message}`, constants.STATUS_CODES.UNAUTHORIZED)
+		responses.sendResponse(res, `Error in student Data : ${error.message}`, constants.STATUS_CODES.UNAUTHORIZED)
 	} else {
 		next();
 	}
@@ -34,7 +34,7 @@ const teacherValidation = async (req, res, next) => {
 
 	const { error } = validation.validate(payload);
 	if (error) {
-		responses.sendResponse(res, `Error in User Data : ${error.message}`, constants.STATUS_CODES.UNAUTHORIZED)
+		responses.sendResponse(res, `Error in teacher Data : ${error.message}`, constants.STATUS_CODES.UNAUTHORIZED)
 	} else {
 		next();
 	}

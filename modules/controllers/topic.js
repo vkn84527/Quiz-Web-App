@@ -64,13 +64,6 @@ module.exports.see_topic = async function (req, res) {
         var values = [req.body.teacher_id];
 
         var results = await execute_query(sql_query, values)
-        // var len = results.length
-        // let text = "";
-        // for (let i = 0; i<len; i++) {
-        //     //console.log(results[i].topic_name)
-        //     text += results[i].topic_name + " ";
-        //   }
-        // console.log(text)
         responses.sendmessResponse(res, `These Topic are available for this Teacher_id : ${req.body.teacher_id}`,results, constants.STATUS_CODES.SUCCESS)
     }
     catch {

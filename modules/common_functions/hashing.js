@@ -1,8 +1,6 @@
 var bcryptjs = require('bcryptjs')
-const jwt = require('jsonwebtoken');
 require('dotenv').config();
 var salt = 10;
-var secret_key = process.env.SECRET_KEY;
 
 
 module.exports.hash_password = (password) => {
