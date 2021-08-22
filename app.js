@@ -21,6 +21,16 @@ require("./routes/question_route")(app);
 require("./routes/play_quiz_route")(app);
 
 
+app.all('*', (req, res) => {
+    const err = new Error(`Requested URL ${req.path} not found!!`)
+    res.status(404).json({
+        success: 0,
+        message: err.message,
+        stack: err.stack
+    })
+})
+
+
 app.listen(port, () => {
     console.log(`server running on port: ${port}`)
 });

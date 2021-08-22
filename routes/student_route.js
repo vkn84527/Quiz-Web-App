@@ -8,5 +8,6 @@ module.exports = app => {
     app.post('/student_register',validateuser.studentValidation, student.register);
     app.post('/student_login',userloginValidation.studentloginValidation, student.login);
     app.post('/student_logout', student.logout);
+    
 
 }
